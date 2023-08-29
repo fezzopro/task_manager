@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: <%= ENV["DB_PORT"] %>
 
 development:
   <<: *default
@@ -41,7 +42,7 @@ development:
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: <%= ENV["DB_PORT"] %>
+  # port: <%= ENV["DB_PORT"] %>
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -58,6 +59,9 @@ development:
 test:
   <<: *default
   database: task_manager_test
+  username: <%= ENV["TEST_DB_USERNAME"] %>
+  password: <%= ENV["TEST_DB_PASSWORD"] %>
+  host: <%= ENV["TEST_DB_HOST"] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
