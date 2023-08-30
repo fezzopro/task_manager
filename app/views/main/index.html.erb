@@ -1,2 +1,10 @@
 <h1>Main#index</h1>
-<p>Find me in app/views/main/index.html.erb</p>
+<p>Provided Services are: </p>
+<ul>
+<% @service.each do |single_service| %>
+  <li> <%= single_service %> </li>
+<% end %>
+</ul>
+
+<a href='tasks/index'>Task 1</a>
+<%= link_to('Task 2', {controller: 'tasks', action: 'index', usename: 'kamana'})%>
