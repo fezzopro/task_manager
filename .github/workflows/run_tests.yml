@@ -31,7 +31,7 @@ jobs:
           RAILS_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-        run: bundle install |
+        run: |
           sudo apt-get -yqq install libpq-dev
           bundle install --jobs 4 --retry 3
           bundle exec rails db:create
