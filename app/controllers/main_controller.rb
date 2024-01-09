@@ -1,5 +1,8 @@
 class MainController < ApplicationController
-  def index; end
+  def index
+    @service = %i[Marketing Software]
+  end
+
   def about; end
 
   def hello
